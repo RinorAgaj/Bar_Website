@@ -2,6 +2,8 @@ body{
     margin: 0;
     padding: 0;
 }
+
+/* --------- HEADER -----------*/
 .header{
     position: fixed;
     top: 0;
@@ -108,3 +110,46 @@ body{
     flex-direction: row;
 }
 
+
+/* -------- FOOTER --------- */
+
+
+.container_top{
+    background-color: gray;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.footer_hours li span{
+    margin-right: 50px;
+}
+.footer_hours li{
+    margin-bottom: 5px;
+}
+.column-left h4{
+    display: flex;
+    justify-content: center;
+}
+.column-left .footer_hours{
+    display: flex;
+    list-style: none;
+    flex-direction: column;
+    justify-content: center;
+}
+.column-middle{
+    align-items: center;
+}
+
+.column-right{
+    align-items: center;
+}
+
+
+.container_bottom{
+    display: flex;
+    padding: 0px 20px;
+    justify-content: space-between;
+    background-color: rgb(90, 87, 87);
+    align-items: center;
+
+}
