@@ -9,3 +9,18 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
+
+// Test per slide
+document.addEventListener('DOMContentLoaded', function () {
+    const moreButton = document.getElementById('more-button');
+    const morePanel = document.getElementById('more-panel');
+    const closeButton = document.getElementById('close-button');
+
+    moreButton.addEventListener('click', function () {
+        morePanel.style.right = '0';
+    });
+
+    closeButton.addEventListener('click', function () {
+        morePanel.style.right = '-350px';
+    });
+});
