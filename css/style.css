@@ -509,12 +509,742 @@ body{
 
 /* -------- MENU.HTML --------- */
 
+html {
+    scroll-behavior: smooth;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    font-size: large;
+}
+
+.Poppins{
+    font-family: 'Poppins', sans-serif;
+}
+
+.DMsans{
+    font-family: 'DM Sans', sans-serif;
+}
+
+/* --------- HEADER -----------*/
+.header{
+    position: fixed;
+    top: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+    height: 500px;  
+
+}
+#header-index {
+    background: linear-gradient(rgba(15, 23, 43, .9), rgba(15, 23, 43, .9)), url(../img/header.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    transition: height 0.3s ease-out;
+}
+#header-about{
+    background: linear-gradient(rgba(15, 23, 43, .9), rgba(15, 23, 43, .9)), url(../img/About-US-bg.jpeg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    transition: height 0.3s ease-out;
+}
+#header-menu{
+    background: linear-gradient(rgba(15, 23, 43, .9), rgba(15, 23, 43, .9)), url(../img/menu-bg.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    transition: height 0.3s ease-out;
+}
+
+#header-reservation{
+    background: linear-gradient(rgba(15, 23, 43, .9), rgba(15, 23, 43, .9)), url(../img/reservation-bg.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    transition: height 0.3s ease-out;
+}
+
+.header-smaller {
+    height: 90px !important;
+}
+
+.header-smaller .header-left,
+.header-smaller .header-middle,
+.header-smaller .header-right {
+    display: flex;
+    margin-top: 15px;
+    align-items: flex-start;
+    font-size: medium;
+    font-weight: bolder;
+}
+
+.header-left .header-text {
+    display: block;
+    
+}
+
+
+.header-left .header-logo-small {
+    display: none;
+    width: 120px;
+    height: auto;
+}
+.header-logo{
+    width: 30px;
+}
+
+.header-smaller .header-left .header-text {
+    display: none;
+}
+
+.header-smaller .header-left .header-logo {
+    display: block;
+    width: 60px;
+}
+
+
+.header-left{
+    display: flex;
+    font-size: larger;
+    font-weight: bold;
+    margin-left: 20px;
+    margin-top: 15px;
+    align-items: center;
+    flex-direction: row-reverse;
+}
+
+.header-middle{
+    display: flex;
+    flex-direction: column;
+    font-size: larger;
+    font-weight: bold;
+    margin-top: 30px;
+}
+
+.about-us-text,
+.menu-text,
+.reservation-text {
+    display: block;
+    text-align: center;
+    color: white;
+    font-size: 4em; 
+    margin-top: 25%;
+}
+
+.header-smaller .about-us-text,
+.header-smaller .menu-text,
+.header-smaller .reservation-text{
+    display: none;
+}
+
+.header-list{
+    display: flex;
+    list-style: none;
+
+}
+
+.header-list a{
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+
+.header-item{
+    display: flex;
+    margin-right: 15px;
+}
+
+.header-right{
+    display: flex;
+    margin-right: 95px;
+    margin-top: 15px;
+    flex-wrap: wrap;
+}
+.header-logo{
+    display: flex;
+}
+.header-logo-list {
+    display: flex;
+    list-style: none;
+    margin-right: 20px;
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+/* Sliding panel (Still in testing phase)*/
+.sliding-panel {
+    position: fixed;
+    top: 0;
+    right: -350px;
+    width: 350px;
+    height: 100%;
+    background: url('../img/sliding-panel-background.jpg');
+    background-size: cover;
+    background-position: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    overflow-y: auto;
+    transition: right 0.3s ease-in-out;
+}
+
+#more-button, #search-button, #account-button {
+    cursor: pointer;
+}
+
+.sliding-panel button#close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.sliding-panel .bar-info {
+    text-align: center;
+    padding: 10px;
+    color: white;
+}
+
+.sliding-panel .bar-info img {
+    max-width: 50%;
+    height: auto;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    filter: invert(1);
+}
+
+.sliding-panel .bar-info h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.sliding-panel .panel-text p {
+    color: white;
+    margin-bottom: 15px;
+    margin-right: 15px;
+    margin-left: 15px;
+    text-align: center;
+}
+
+.sliding-panel .social-icons {
+    text-align: center;
+    padding-bottom: 20px;
+    color: white;
+}
+
+.sliding-panel .social-icons a {
+    display: inline-block;
+    margin: 0 10px;
+}
+
+.sliding-panel .social-icons img {
+    max-width: 30px;
+    height: auto;
+}
+
+.Our_Bar{
+    display: flex;
+}
+@media (max-width: 1024px) {
+    .Our_Bar{
+        display: flex;
+        flex-direction: column;
+    }
+    .animated-fade{
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+}
+
+
+.item_left,
+.item_right{
+    display: flex;
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+}
+
+.item_right_title,
+.item_left_title{
+    font-size: 26px;
+}
+
+.animated-fade{
+    display: flex;
+    width: 100%;
+    height: 300px;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.7s ease-in-out;
+}
+.animated-fade:hover{
+    transform: scale(1.3);
+    transition: transform 0.7 ease-in-out;
+}
+.item_left_span:hover,
+.item_right_span:hover{
+    background-color: white;
+}
+
+#item_left,
+#item_right{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    letter-spacing: 3px;
+}
+.animated-fade{
+    color: white;
+    text-decoration: none;
+}
+
+.item_left_span,
+.item_right_span{
+    border: 1px solid #c7a17a;
+    background-color: #c7a17a;
+    color: black;
+    padding: 10px;
+}
+
+.title_private_event{
+    letter-spacing: 2px;
+    display: flex;
+    justify-content: center;
+    color:#30271c;
+}
+.container_private_events{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 26px;
+}
+.private_events_left{
+    width: 30%;
+    text-align: center;
+    margin-right: 20px;
+}
+.private_events_left h2{
+    letter-spacing: 2px;
+    color: #30271c;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+.private_events_p{
+    font-size: 18px;
+}
+
+.private_events_right img{
+    height: 400px;
+    width:600px;
+}
+
+.button_private_events{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+.inquire_now{
+    letter-spacing: 2px;
+    height: 50px;
+    width: 150px;
+    background-color: white;
+    color: #9a6e41;
+    border: 1px solid #9a6e41;
+    margin-bottom: 20px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.inquire_now:hover{
+    letter-spacing: 2px;
+    background-color: #9a6e41;
+    color: white;
+    cursor: pointer;
+}
+
+/* -------- FOOTER --------- */
+
+
+.container_top{
+    padding: 50px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    color: white;
+
+    background-image: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url(../img/Footer.jpeg);
+    background-position:  center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.footer_hours li{
+    width: 300px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+}
+.footer_hours{
+    padding-inline-start: 0;
+}
+
+.span-left{
+    display: inline-block;
+}
+.span-right{
+    display: inline-block;
+    color: #666;
+}
+
+
+.horizontal {
+    border-bottom: 1px solid rgb(177, 161, 161);
+    flex-grow: 1;
+    display: block;
+    margin: 0;
+    margin: 0px 10px;
+}
+
+.vertical-left{
+    left: 66%;
+}
+.vertical-right{
+    right: 66%;
+}
+.vertical{
+    border-left: 1px solid rgb(177, 161, 161);
+    height: 265.75px;
+}
+
+@media (max-width: 1024px) {
+    .vertical-left{
+        border-left: none;
+        border-top: 1px solid rgb(177, 161, 161);
+        width: 100%;
+        height: auto;
+        position: relative;
+        left: 0;
+        right: 0;
+        margin-top: 20px;
+    }
+}
+
+@media (max-width: 655px) {
+    .vertical-right{
+        border-left: none;
+        border-top: 1px solid rgb(177, 161, 161);
+        width: 100%;
+        height: auto;
+        position: relative;
+        left: 0;
+        right: 0;
+        margin-bottom: 10px;
+    }
+}
+
+
+.column-left .footer_hours{
+    list-style: none;
+}
+
+.column-left h3,
+.column-middle h3,
+.column-right h3{
+    display: flex;
+    justify-content: center;
+    color: rgb(219, 216, 216);
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.column-right{
+    padding:  0px 20px 0px 0px;
+}
+
+.OtherLocation_bottom{
+    padding-top: 10px;
+}
+
+
+.container_bottom{
+    display: flex;
+    padding: 0px 20px;
+    justify-content: space-between;
+    background-color: black;
+    align-items: center;
+    flex-wrap: wrap;
+    color: gray;
+}
+
+.footer_middle{
+    margin-top: 3px;
+}
+
+#subscriptionForm{
+    display: flex;
+    align-items: flex-start;
+    column-gap: 5px;
+}
+#email{
+    background-color: transparent;
+    padding: 11px 12px;
+    color: #bcbcbc;
+    border: 1px solid #acacac;
+}
+.button_footer{
+    background-color: #c7a17a;
+    border: 2px solid #c7a17a;
+}
+.button_footer:hover{
+    background-color:#9a6e41;
+    border: 2px solid #9a6e41;
+    cursor: pointer;
+}
+
+
+
+
+/* -------- MENU.HTML --------- */
+
+.What_We_Offer_Section{
+    display: flex;
+    justify-content: center;
+    color: white;
+    background-color: black;
+    border-bottom: 2px solid black;
+    column-gap: 40px;
+    height: 700px;
+    align-items: center;
+}
+.Offer_p{
+    width: 40%;
+}
+.Offer_h2{
+    font-size: 3em; 
+    margin: 0;
+}
+
+.What_We_Offer_title{
+    padding-top: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    color: white;
+    padding: 20px;
+}
+
+.Offer_left_title,
+.Offer_middle_title,
+.Offer_right_title{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 500px;
+
+}
+
+@media (max-width: 1100px) {
+
+    .Offer_p{
+        width: auto;
+    }
+    .Offer_h2{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 2em;
+    }
+    
+    .What_We_Offer_Section{
+        flex-direction: column;
+        height: 1000px;
+        column-gap: none;
+        row-gap: 20px;
+    }
+
+    .Offer_left_title,
+    .Offer_middle_title,
+    .Offer_right_title{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 1000px;
+    }
+}
+@media (max-width: 1145px) {
+    .What_We_Offer_Section{
+        flex-direction: column;
+        height: 1000px;
+        column-gap: none;
+        row-gap: 20px;
+    }
+
+    .Offer_left_title,
+    .Offer_middle_title,
+    .Offer_right_title{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 300px;
+    }
+}
+
+.animated1-fade{
+    display: flex;
+    width: 100%;
+    height: 100px;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.8s ease-in-out;
+    color: white;
+    text-decoration: none;
+}
+.animated1-fade:hover{
+    transform: scale(1.15);
+    transition: transform 0.8 ease-in-out;
+}
+
+.Cocktail_Section{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 900px;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)), url(../img/Cocktail.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
+    border-bottom: 2px solid black;
+    padding-top: 20px;
+}
+
+.Cocktail_lista{
+    display: flex;
+    justify-content: space-evenly;
+    padding-top: 20px;
+}
+.Cocktail_title{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    letter-spacing: 2px;
+}
+.Cocktail_list{
+    display: flex;
+    flex-direction: column;
+    list-style-type: none;
+    justify-content: flex-start;
+    padding: 0px;
+    row-gap: 20px;
+}
+.Cocktail_list_item{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 22px;
+    letter-spacing: 2px;
+}
+
+@media (max-width: 1305px) {
+    .Cocktail_list{
+        padding: 15px 100px;
+        background-size: 800px;
+    }
+    .Cocktail_Section{
+        height: 1000px;
+    }
+}
+@media (max-width: 1145px) {
+
+    .Cocktail_list{
+        padding: 15px 50px;
+    }
+    .Cocktail_lista{
+        flex-direction: column;
+        justify-content: center;
+    }
+    .Cocktail_Section{
+        height: 2000px;
+    }
+}
+
+.Wine_Section{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 900px;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)), url(../img/Wine.jpeg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
+    border-bottom: 2px solid black;
+    padding-top: 20px;
+}
+.Wine_lista{
+    display: flex;
+    justify-content: space-evenly;
+    padding-top: 20px;
+}
+.Wine_title{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    letter-spacing: 2px;
+}
+.Wine_list{
+    display: flex;
+    flex-direction: column;
+    list-style-type: none;
+    justify-content: flex-start;
+    padding: 0px;
+    row-gap: 20px;
+}
+.Wine_list_item{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 22px;
+    letter-spacing: 2px;
+}
+
+@media (max-width: 1300px) {
+    .Wine_list{
+        padding: 15px 100px;
+        background-size: 800px;
+    }
+}
+@media (max-width: 1145px) {
+    .Wine_list{
+        padding: 15px 50px;
+    }
+    .Wine_lista{
+        flex-direction: column;
+        justify-content: center;
+    }
+    .Wine_Section{
+        height: 1300px;
+    }
+}
+
+
+
 
 .Snacks_Section{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    height: 600px;
+    height: 900px;
     background-image: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)), url(../img/Snacks.jpg);
     background-repeat: no-repeat;
     background-size: cover;
@@ -533,7 +1263,7 @@ body{
     flex-direction: column;
     list-style-type: none;
     justify-content: center;
-    padding: 15px 200px;
+    padding: 20px 200px;
     row-gap: 20px;
 }
 .Snacks_list_item{
