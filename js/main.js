@@ -256,3 +256,41 @@ function validimi(){
 function performRegister(){
     validimi();
 }
+
+//Validimi per log in form
+function validateLoginForm() {
+    var usernameRegex = /^[a-zA-Z][a-zA-Z0-9]{3,15}$/; 
+    //Pershkrimi i Regex:
+    //^[a-zA-Z]: Follon me nje shkronje (qofte e madhe ose e vogel).
+    //[a-zA-Z0-9]{3,15}$: Vazhdon me 3 deri ne 15 shkronja (te mdhaja ose te vogla) ose numra.
+    var usernameInput = document.getElementById('username').value;
+    
+    var passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,24}$/;
+    //Pershkrimi i Regex:
+    //^(?=.*[a-z]): Passwordi duhet te permbaj te pakten 1 shkronje te vogel
+    //(?=.*[A-Z]): Passwordi duhet te permbaj te pakten 1 shkronje te madhe
+    //(?=.*\d): Passwordi duhet te permbaj te pakten 1 numer
+    //(?=.*[!@#$%^&*]): Passwordi duhet te permbaj te pakten 1 "special character" (!@#$%^&*)
+    //[A-Za-z\d!@#$%^&*]{8,24}$: Passwordi duhet te permbaje 8 deri ne 24 karaktere (shkronja te vogla, shkronja te mdhaja, numra ose "special characters".
+    var passwordInput = document.getElementById('password').value;
+
+    var usernameError = document.getElementById('usernameError');
+    var passwordError = document.getElementById('passwordError');
+
+    // Error mesazhet
+    usernameError.innerHTML = '';
+    passwordError.innerHTML = '';
+
+    // Per username
+    if (!usernameRegex.test(usernameInput)) {
+        usernameError.innerHTML = 'Error: Invalid username';
+    }
+
+    // Per password
+    if (!passwordRegex.test(passwordInput)) {
+        passwordError.innerHTML = 'Error: Invalid password';
+    }
+}
+
+// Event listener qe e "aktivizon" validimin e username edhe password kur te klikohet buttoni.
+document.getElementById('loginButton').addEventListener('click', validateLoginForm);
