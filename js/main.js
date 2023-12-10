@@ -110,7 +110,9 @@ function changeImg(){
     }
     setTimeout("changeImg()", 2600);
 }
-document.addEventListener(onload, changeImg());
+document.addEventListener('DOMContentLoaded', function () {
+    changeImg();
+});
 
 
 // Test per slide
@@ -203,3 +205,54 @@ function toggleReservationForm() {
     popup.style.display = (popup.style.display === "none" || popup.style.display === "") ? "block" : "none";
 }
 
+
+
+//Validimi i Register form
+function validimi(){
+    var nameRegex = /^[A-Za-z\s]+$/;
+    var nameInput = document.getElementById('firstName').value;
+    var nameError = document.getElementById('nameError');
+    nameError.innerHTML = '';
+
+    if(!nameRegex.test(nameInput)){
+        nameError.innerHTML = 'Error: Name must start with a capital letter';
+    }
+
+    var lastnameRegex = /^[A-Za-z\s]+$/;
+    var lastnameInput = document.getElementById('lastName').value;
+    var lastnameError = document.getElementById('lastnameError');
+    lastnameError.innerHTML = '';
+
+    if(!lastnameRegex.test(lastnameInput)){
+        lastnameError.innerHTML = 'Error: Name must start with a capital letter';
+    }
+
+    var emailRegex = /[a-zA-Z.-_\s@]+@+[a-z\s@]+\.+[a-z\s@]{2,3}$/;
+    var emailInput = document.getElementById('email').value;
+    var emailError = document.getElementById('emailError');
+    emailError.innerHTML = ''
+
+    if(!emailRegex.test(emailInput)){
+        emailError.innerHTML = 'Error: Forma e email eshte invalide';
+    }
+
+    var passwordInput = document.getElementById('registerPassword').value;
+    var passwordError = document.getElementById('passwordError');
+    passwordError.innerHTML = ''
+
+    if(passwordInput.length < 6){
+        passwordError.innerHTML = 'Password must contains more than 6 characters';
+    }
+
+    var confirmpasswordInput = document.getElementById('confirmPassword').value;
+    var confirmpasswordError = document.getElementById('confirmpasswordError');
+    confirmpasswordError.innerHTML = ''
+
+    if(passwordInput !== confirmpasswordInput){
+        confirmpasswordError.innerHTML = 'Password do not match!';
+    }
+
+}
+function performRegister(){
+    validimi();
+}

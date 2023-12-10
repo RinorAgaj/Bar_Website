@@ -302,7 +302,7 @@ input {
 
 /* username dhe passwordi */
 .form-group {   
-    margin-bottom: 20px;
+    margin-bottom: 5px;
 }
 
 .login-button,
@@ -325,6 +325,13 @@ input {
 .register-link,
 .login-link {
     cursor: pointer;
+}
+
+/* Error div */
+.Error2{
+    font-size: 12px;
+    color: red;
+    margin: 0;
 }
 
 
@@ -1212,7 +1219,7 @@ input {
     background-color: #B85E0E;
     position: absolute;
     left: 50%;
-    bottom: -1400px;
+    bottom: -1150px;
     justify-content: center;
     align-items: center;
     color: white;
