@@ -1004,3 +1004,239 @@ input {
     cursor: pointer;
     color: #555;
 }
+
+/* Our Decor */
+.Our_Decor{
+    display: flex;
+    color: white;
+    background-color: black;
+    height: 500px;
+    padding-left: 10%;
+}
+.Our_Decor > div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.Decor_left .slideshow_content{
+    height: 300px;
+    margin-left: 30%;
+}
+
+.Decor_bundle{
+    width: 50%;
+}
+.Decor_bundle .Decor_title{
+    font-size: 30px;
+    font-weight: 600;
+}
+
+.Decor_bundle .Decor-list{
+    font-size: 14px;
+    width: 75%;
+    letter-spacing: 0.3px;
+}
+
+/* Quality Products */
+.Quality_Products{
+    display: flex;
+    color: white;
+    background-color: black;
+    width: 100%;
+    height: 400px;
+    margin-bottom: 50px;
+}
+.Quality_Products > div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Quality_bundle{
+    width: 50%;
+}
+.Quality_bundle .Quality_title{
+    font-size: 28px;
+    font-weight: 600;
+}
+
+.Quality-wrapper::-webkit-scrollbar{
+    height: 2px;
+}
+.Quality-wrapper::-webkit-scrollbar-track{
+    background: none;
+}
+.Quality-wrapper::-webkit-scrollbar-thumb{
+    background: #f68b3f;
+    border-radius: 30px;
+}
+.Quality-wrapper::-webkit-scrollbar-thumb:hover{
+    background: #fa7110;
+}
+
+.Quality-wrapper{
+    display: flex;
+    overflow: hidden;
+    width: 50%;
+    border-top: 1px solid white;
+    scroll-snap-type: x mandatory;
+    overflow-x: scroll;
+    user-select: none;
+    cursor: grab;
+}
+.Quality-wrapper:active{
+    cursor: grabbing;
+}
+.Quality-wrapper .Quality-slide{
+    display: flex;
+    justify-content: center;
+    flex: 0 0 100%;
+    scroll-snap-align: start;
+    user-select: none;
+}
+
+/* OUR TEAM */
+.Our-Team{
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 100px;
+    flex-direction: column;
+}
+.Our-Team-Title{
+    color: white;
+    margin: 0;
+    border-bottom: 5px solid;
+    border-radius: 7px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.8);
+
+}
+.container::-webkit-scrollbar{
+    height: 8px;
+}
+.container::-webkit-scrollbar-track{
+    background: #f1f1f1;
+    border-radius: 30px;
+}
+.container::-webkit-scrollbar-thumb{
+    background: #f68b3f;
+    border-radius: 30px;
+}
+.container::-webkit-scrollbar-thumb:hover{
+    background: #fa7110;
+}
+.container {
+    cursor: grab;
+    display: flex;
+    gap: 12px;
+    max-width: 1000px;
+    width: 100%;
+    border-radius: 12px;
+    padding: 30px;
+    scroll-snap-type: x mandatory;
+    overflow-x: scroll;
+    scroll-padding: 30px;
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.8);
+    user-select: none;
+}
+.container .card{
+    display: flex;
+    flex: 0 0 33%;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px;
+    border-radius: 12px;
+    background: #fff;
+    scroll-snap-align: start;
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.1);
+}
+.card .image{
+    height: 150px;
+    width: 150px;
+    padding: 4px;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+}
+.image img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border: #fff;
+    top: -40px;
+}
+
+.card h2{
+    margin-top: 25px;
+    margin-bottom: 0;
+    color: #333;
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.card p{
+    margin-top: 4px;
+    font-size: 16px;
+    font-weight: 400;
+    color: #333;
+    text-align: center;
+}
+
+.card .title{
+    font-size: 14px;
+    font-weight: 600;
+    color: #fa7110;
+    text-align: center;
+}
+
+
+
+.Book_Table_Section{
+    display: flex;
+    height: 350px;
+    align-items: center;
+    overflow: hidden;
+    
+}
+.about_us_footer{
+    display: flex;
+    width: 100%;
+    position: relative;
+    top: -100px;
+    filter: brightness(75%);
+}
+
+.Book_Table{
+    height: 220px;
+    width: 420px;
+    display: flex;
+    background-color: #B85E0E;
+    position: absolute;
+    left: 50%;
+    bottom: -1400px;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    flex-direction: column;
+}
+
+.Book_Table_title{
+    font-size: 40px;
+    margin: 10px;
+}
+.contact_us_button a{
+    text-decoration: none;
+    color: white;
+}
+.contact_us_button{
+    margin: 10px;
+    background-color: black;
+    padding: 10px;
+}
+
+.contact_us_button:hover{
+    background-color: #B85E0E;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    color: black;
+    margin: 9px;
+}

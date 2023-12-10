@@ -37,8 +37,83 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
+//testin - Azemi
+document.addEventListener('DOMContentLoaded', function () {
+    const container = document.getElementById('cardContainer');
+    let isMouseDown = false;
+    let startX;
+    let scrollLeft;
 
-    // Test per slide
+    container.addEventListener('mousedown', (e) => {
+        isMouseDown = true;
+        startX = e.pageX - container.offsetLeft;
+        scrollLeft = container.scrollLeft;
+    });
+
+    container.addEventListener('mouseleave', () => {
+        isMouseDown = false;
+    });
+
+    container.addEventListener('mouseup', () => {
+        isMouseDown = false;
+    });
+
+    container.addEventListener('mousemove', (e) => {
+        if (!isMouseDown) return;
+        e.preventDefault();
+        const x = e.pageX - container.offsetLeft;
+        const walk = (x - startX) * 2;
+        container.scrollLeft = scrollLeft - walk;
+    });
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+    const container = document.getElementById('Quality');
+    let isMouseDown = false;
+    let startX;
+    let scrollLeft;
+
+    container.addEventListener('mousedown', (e) => {
+        isMouseDown = true;
+        startX = e.pageX - container.offsetLeft;
+        scrollLeft = container.scrollLeft;
+    });
+
+    container.addEventListener('mouseleave', () => {
+        isMouseDown = false;
+    });
+
+    container.addEventListener('mouseup', () => {
+        isMouseDown = false;
+    });
+
+    container.addEventListener('mousemove', (e) => {
+        if (!isMouseDown) return;
+        e.preventDefault();
+        const x = e.pageX - container.offsetLeft;
+        const walk = (x - startX) * 2;
+        container.scrollLeft = scrollLeft - walk;
+    });
+});
+
+let i = 0;
+let imgArray = ['img/OurDecor1.jpg','img/OurDecor2.jpg','img/OurDecor3.jpg'];
+
+function changeImg(){
+    document.getElementById('slideshow').src = imgArray[i];
+
+    if(i< imgArray.length -1){
+        i++;
+    }
+    else{
+        i=0;
+    }
+    setTimeout("changeImg()", 2600);
+}
+document.addEventListener(onload, changeImg());
+
+
+// Test per slide
 const moreButton = document.getElementById('more-button');
 const morePanel = document.getElementById('more-panel');
 const closeButton = document.getElementById('close-button');
