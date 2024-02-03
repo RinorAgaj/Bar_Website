@@ -1,7 +1,7 @@
 <?php
     session_start();
 
-    define('SITEURL', 'http://localhost:8008/Bar_Website_Test/');
+    define('SITEURL', 'http://localhost:8008/Bar_Website/');
     define('LOCALHOST', '127.0.0.1');
     define('DB_USERNAME', 'root');
     define('DB_PASSWORD', 'default');
