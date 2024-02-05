@@ -1,86 +1,52 @@
-<?php include("partials/header.php");?>
+<?php 
+session_start(); 
+include "config/constant.php";
 
-<div class="main-content">
-    <div class="wrapper">
-        <h1>Add Admin</h1>
+if (isset($_POST['uname']) && isset($_POST['password'])) {
+
+	function validate($data){
+       $data = trim($data);
+	   $data = stripslashes($data);
+	   $data = htmlspecialchars($data);
+	   return $data;
+	}
+
+	$uname = validate($_POST['uname']);
+	$pass = validate($_POST['password']);
+
+	if (empty($uname)) {
+		header("Location: index.php?error=User Name is required");
+	    exit();
+	}else if(empty($pass)){
+        header("Location: index.php?error=Password is required");
+	    exit();
+	}else{
+        $pass = md5($pass);
+
         
-        <br><br>
+		$sql = "SELECT * FROM tbl_users WHERE user_name='$uname' AND password='$pass'";
 
-        <?php
-            if(isset($_SESSION['add']))
-            {
-                echo $_SESSION['add'];
-                unset($_SESSION['add']);
-            }
-        ?>
+		$result = mysqli_query($conn, $sql);
 
-        <br><br>
-
-        <form action="" method="POST">
-
-            <table class="tbl-30">
-                <tr>
-                    <td>Full Name:</td>
-                    <td><input type="text" name="full_name" placeholder="Enter Your Name"></td>
-                </tr>
-
-                <tr>
-                    <td>Username:</td>
-                    <td><input type="text" name="username" placeholder="Your Username"></td>
-                </tr>
-
-                <tr>
-                    <td>Password:</td>
-                    <td><input type="password" name="password" placeholder="Your Password"></td>
-                </tr>
-
-                <tr>
-                    <td colspan="2">
-                        <input type="submit" name="submit" value="Add Admin" class="btn-secondary">
-                    </td>
-                </tr>
-            </table>
-        </form>
-    </div>
-</div>
-
-
-<?php include("partials/footer.php");?>
-
-
-<?php
-
-    if(isset($_POST['submit']))
-    {
-        // echo "Button pressed";
-
-        $full_name = $_POST['full_name'];
-        $username = $_POST['username'];
-        $password = md5($_POST['password']);
-
-
-        $sql = "INSERT INTO tbl_admin SET
-            full_name = '$full_name',
-            username = '$username',
-            password = '$password'
-        ";
-
-        $res = mysqli_query($conn, $sql) or die(mysqli_error());
-        
-        if($res==TRUE)
-        {
-            $_SESSION['add'] = "Admin Added Successfully";
-            header('location:'.SITEURL.'admin/manage-admin.php');
-        }
-        else
-        {
-            $_SESSION['add'] = "Failed to Add Admin";
-            header('location:'.SITEURL.'admin/manage-admin.php');
-        }
-    }
-    else
-    {
-        // echo "Button not pressed";
-    }
-
-?>
+		if (mysqli_num_rows($result) === 1) {
+			$row = mysqli_fetch_assoc($result);
+            if ($row['user_name'] === $uname && $row['password'] === $pass) {
+            	$_SESSION['user_name'] = $row['user_name'];
+            	$_SESSION['name'] = $row['name'];
+            	$_SESSION['id'] = $row['id'];
+            	header("Location: home.php");
+		        exit();
+            }else{
+				header("Location: index.php?error=Incorect User name or password");
+		        exit();
+			}
+		}else{
+			header("Location: index.php?error=Incorect User name or password");
+	        exit();
+		}
+	}
+	
+}else{
+	header("Location: index.php");
+	exit();
+}

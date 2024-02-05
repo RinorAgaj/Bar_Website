@@ -75,7 +75,7 @@
                                 {
                                     $id = $rows['id'];
                                     $full_name = $rows['full_name'];
-                                    $username = $rows['username'];
+                                    $username = $rows['user_name'];
 
 
                                     ?>
