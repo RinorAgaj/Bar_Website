@@ -1,16 +1,22 @@
+<?php
+session_start();
+if (isset($_SESSION["user"])) {
+   header("Location: index.php");
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
+    <title>Bar Website</title> 
     <style>
         @import url('https://fonts.googleapis.com/css2?family=DM+Sans:opsz@9..40&family=Poppins:wght@500&display=swap');
     </style>
-    <title>Reservation - Otium</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <header class="header Poppins" id="header-reservation">
+    <header class="header Poppins" id="header-index">
         <div class="header-left">
             <h1 class="header-text">
                 OTIUM
@@ -19,12 +25,12 @@
         </div>
         <div class="header-middle">
             <ul class="header-list">
-                <li class="header-item"><a href="index.html" class="header-link">HOME</a></li>
-                <li class="header-item"><a href="about.html" class="header-link">ABOUT</a></li>
-                <li class="header-item"><a href="menu.html" class="header-link">MENU</a></li>
-                <li class="header-item"><a href="reservation.html" class="header-link">RESERVATION</a></li>
+                <li class="header-item"><a href="home.php" class="header-link">HOME</a></li>
+                <li class="header-item"><a href="about.php" class="header-link">ABOUT</a></li>
+                <li class="header-item"><a href="menu.php" class="header-link">MENU</a></li>
+                <li class="header-item"><a href="shop.php" class="header-link">SHOP</a></li>
+                <li class="header-item"><a href="reservation.php" class="header-link">RESERVATION</a></li>
             </ul>
-            <h2 class="reservation-text">RESERVATIONS</h2>
         </div>
         <div class="header-right">
             <ul class="header-logo">
@@ -85,8 +91,15 @@
             <p class="register-link" onclick="showRegisterForm()">Don't have an account? Register here.</p>
         </form>
 
-        <!-- Register forma (fillimisht jasht pamjes) -->
-        <form id="registerForm" style="display: none;">
+        <?php
+            if(isset($_POST['submit']))
+            {
+                header('location:'.SITEURL.'admin/manage-admin.php');
+            }
+        ?>
+
+        <!-- Register form (initially hidden) -->
+        <form id="registerForm" style="display: none;" method="POST">
             <div class="form-group">
                 <label for="firstName">First Name</label>
                 <input type="text" id="firstName" name="firstName" placeholder="Enter your first name">
@@ -112,56 +125,93 @@
                 <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm your password">
                 <div id="confirmpasswordError" class="Error2"></div>
             </div>
-            <button type="button" onclick="performRegister()" class="register-button" >Register</button>
+            <!-- <input type="submit" name="submit" class="register-button" value="Register"> -->
+            <button type="submit" name="submit" onclick="performRegister()" class="register-button" >Register</button>
             <p class="login-link" onclick="closeRegisterForm()">Already have an account? Log in here.</p>
         </form>
     </div>
 </div>
  </header>
 
-    <main class="content-below-header" id="main-container">
-        <p style="height: 30vh;"></p>
-        <h1 style="font-weight: bolder;">We offer reservations for parties of 2 to 6 guests for OTIUM.</h1>
-        <h2>Please book below.</h2>
-        <button id="reservation-button" onclick="toggleReservationForm()"><b>Book Now</b></button>
-        
-        <div id="reservationPopup" class="popup">
-            <form id="reservationForm" class="reservation-form">
-                <button class="close-btn" onclick="toggleReservationForm()">&times;</button>
-                <label for="name" class="form-label">Name:</label>
-                <input type="text" id="name" name="name" class="form-input" required>
-        
-                <label for="email" class="form-label">Email:</label>
-                <input type="email" id="email" name="email" class="form-input" required>
-        
-                <label for="date" class="form-label">Date:</label>
-                <input type="date" id="date" name="date" class="form-input" required>
-        
-                <label for="time" class="form-label">Time:</label>
-                <input type="time" id="time" name="time" class="form-input" required>
-        
-                <label for="guests" class="form-label">Number of Guests:</label>
-                <input type="number" id="guests" name="guests" class="form-input" min="1" required>
-        
-                <button type="submit" class="form-button">Submit Reservation</button>
-            </form>
-        </div>
+ 
+    <main class="content-below-header">
 
+        <!-- <p style="height: 35vh;"></p> -->
+        
+        <section class="bar-slideshow">
+            <div class="slideshow-container">
+                <div class="mySlides fade">
+                    <img src="img/slideshow1.jpg" alt="Bar Photo 1" style="width: 100%;">
+                </div>
+                <div class="mySlides fade">
+                    <img src="img/slideshow2.jpg" alt="Bar Photo 2" style="width: 100%;">
+                </div>
+                <div class="mySlides fade">
+                    <img src="img/slideshow3.jpg" alt="Bar Photo 3" style="width: 100%;">
+                </div>
+                <div class="mySlides fade">
+                    <img src="img/slideshow4.jpg" alt="Bar Photo 4" style="width: 100%;">
+                </div>
+            </div>
+        </section>
+    
+
+
+
+
+        <section class="Our_Bar">
+            <div class="item_left">
+                <a href="about.php" class="animated-fade" style="background-image: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url(img/Our-Bar.jpg);">
+                    <div class="foto_item_left"></div>
+                    <div id="item_left">
+                        <h4 class="item_left_title Poppins">Our Bar</h4>
+                        <span class="item_left_span DMsans">About Us</span>
+                    </div>
+                </a>
+            </div>
+            <div class="item_right">
+                <a href="menu.php" class="animated-fade" style="background-image: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url(img/OurCocktails.jpg);">
+                    <div class="foto_item_right"></div>
+                    <div id="item_right">
+                        <h4 class="item_right_title Poppins">Our Cocktails</h4>
+                        <span class="item_right_span DMsans">Our Menu</span>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+
+        <section class="Private_Events">
+            <h2 class="title_private_event Poppins">PRIVATE EVENTS</h2>
+            <div class="container_private_events">
+                <div class="private_events_left">
+                    <h2 class="title_private_events Poppins">Otium</h2>
+                    <p class="private_events_p DMsans">For a private cocktail reception event, Otium can accommodate 55-135 guests. Click <a href="#" style="color: #c7a17a;">here</a> for a 3D photo rendering of the space.</p>
+                </div>
+                <div class="private_events_right">
+                    <img src="img/private_events.png" alt="private events pic">
+                </div>
+            </div>
+            <div class="button_private_events">
+                <a href="reservation.php"><button class="inquire_now Poppins">INQUIRE NOW</button></a>
+            </div>
         </section>
     </main>
  
+
+    
     <footer class="footer">
         <div class="container_top">
             <div class="column-left ">
                 <h2 class="Poppins">Opening Hours</h2>
                 <ul class="footer_hours DMsans">
-                    <li><span class="span-left">MONDAY</span> <div class="horizontal horizontal_1"></div> <span class="span-right" style="color: #61CE70;">CLOSED</span></li>
-                    <li><span class="span-left">TUESDAY</span> <div class="horizontal horizontal_2"></div> <span class="span-right">09:00 - 22:00</span></li>
-                    <li><span class="span-left">WEDNESDAY</span> <div class="horizontal horizontal_3"></div> <span class="span-right">09:00 - 22:00</span></li>
-                    <li><span class="span-left">THURSDAY</span> <div class="horizontal horizontal_4"></div><span class="span-right">09:00 - 22:00</span></li>
-                    <li><span class="span-left">FRIDAY *</span> <div class="horizontal horizontal_5"></div> <span class="span-right">09:00 - 01:00</span></li>
-                    <li><span class="span-left">SATURDAY *</span>  <div class="horizontal horizontal_6"></div><span class="span-right">09:00 - 01:00</span></li>
-                    <li><span class="span-left">SUNDAY</span> <div class="horizontal horizontal_7"></div><span class="span-right">09:00 - 22:00</span></li>
+                    <li><span class="span-left">MONDAY</span> <div class="horizontal"></div> <span class="span-right" style="color: #61CE70;">CLOSED</span></li>
+                    <li><span class="span-left">TUESDAY</span> <div class="horizontal"></div> <span class="span-right">09:00 - 22:00</span></li>
+                    <li><span class="span-left">WEDNESDAY</span> <div class="horizontal"></div> <span class="span-right">09:00 - 22:00</span></li>
+                    <li><span class="span-left">THURSDAY</span> <div class="horizontal"></div><span class="span-right">09:00 - 22:00</span></li>
+                    <li><span class="span-left">FRIDAY *</span> <div class="horizontal"></div> <span class="span-right">09:00 - 01:00</span></li>
+                    <li><span class="span-left">SATURDAY *</span>  <div class="horizontal"></div><span class="span-right">09:00 - 01:00</span></li>
+                    <li><span class="span-left">SUNDAY</span> <div class="horizontal"></div><span class="span-right">09:00 - 22:00</span></li>
                 </ul>
             </div>
 
@@ -200,7 +250,7 @@
         </div>
         <div class="container_bottom Poppins">
             <div class="footer_left">
-                <a href="index.html" style="text-decoration: none; color: gray;">
+                <a href="index.php" style="text-decoration: none; color: gray;">
                     © OTIUM</a>
             </div>
             <div class="footer_middle">
@@ -213,6 +263,9 @@
 
     </footer>
 
+
     <script src="js/main.js"></script>
+    
+    
 </body>
 </html>

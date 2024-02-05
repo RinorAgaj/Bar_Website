@@ -19,10 +19,11 @@
         </div>
         <div class="header-middle">
             <ul class="header-list">
-                <li class="header-item"><a href="index.html" class="header-link">HOME</a></li>
-                <li class="header-item"><a href="about.html" class="header-link">ABOUT</a></li>
-                <li class="header-item"><a href="menu.html" class="header-link">MENU</a></li>
-                <li class="header-item"><a href="reservation.html" class="header-link">RESERVATION</a></li>
+                <li class="header-item"><a href="home.php" class="header-link">HOME</a></li>
+                <li class="header-item"><a href="about.php" class="header-link">ABOUT</a></li>
+                <li class="header-item"><a href="menu.php" class="header-link">MENU</a></li>
+                <li class="header-item"><a href="shop.php" class="header-link">SHOP</a></li>
+                <li class="header-item"><a href="reservation.php" class="header-link">RESERVATION</a></li>
             </ul>
             <h2 class="about-us-text">ABOUT US</h2>
         </div>
@@ -221,7 +222,7 @@
             <img src="img/about_us_footer.jpeg" alt="foto" class="about_us_footer">
             <div class="Book_Table">
                 <div><h2 class = "Book_Table_title">Book a table</h2></div>
-                <div class="contact_us_button"><a href="reservation.html">CONTACT US</a></div>
+                <div class="contact_us_button"><a href="reservation.php">CONTACT US</a></div>
             </div>
         </div>
     </main>
@@ -276,7 +277,7 @@
         </div>
         <div class="container_bottom Poppins">
             <div class="footer_left">
-                <a href="index.html" style="text-decoration: none; color: gray;">
+                <a href="index.php" style="text-decoration: none; color: gray;">
                     © OTIUM</a>
             </div>
             <div class="footer_middle">

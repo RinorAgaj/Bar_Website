@@ -19,10 +19,11 @@
         </div>
         <div class="header-middle">
             <ul class="header-list">
-                <li class="header-item"><a href="index.html" class="header-link">HOME</a></li>
-                <li class="header-item"><a href="about.html" class="header-link">ABOUT</a></li>
-                <li class="header-item"><a href="menu.html" class="header-link">MENU</a></li>
-                <li class="header-item"><a href="reservation.html" class="header-link">RESERVATION</a></li>
+                <li class="header-item"><a href="home.php" class="header-link">HOME</a></li>
+                <li class="header-item"><a href="about.php" class="header-link">ABOUT</a></li>
+                <li class="header-item"><a href="menu.php" class="header-link">MENU</a></li>
+                <li class="header-item"><a href="shop.php" class="header-link">SHOP</a></li>
+                <li class="header-item"><a href="reservation.php" class="header-link">RESERVATION</a></li>
             </ul>
             <h2 class="menu-text">MENU</h2>
         </div>
@@ -130,7 +131,7 @@
         </div>
         <section class="What_We_Offer_Section">
             <div class="Offer_left">
-                <a href="#section1" class="animated1-fade" style="background-image: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url(img/Cocktail\ Offer.jpg); height: 300px; background-repeat:  no-repeat; background-size: cover; background-position: center;">
+                <a href="#section1" class="animated1-fade" style="background-image: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url(img/Cocktail\ Offer.jpg); height: 300px; width:400px; background-repeat:  no-repeat; background-size: cover; background-position: center;">
                     <div class="foto_Offer_left"></div>
                     <div id="Offer_left">
                         <h4 class="Offer_left_title Poppins">Cocktail</h4>
@@ -138,7 +139,7 @@
                 </a>
             </div>
             <div class="Offer_middle">
-                <a href="#section2" class="animated1-fade" style="background-image: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url(img/Wine\ Offer.jpeg); height: 300px; background-repeat: no-repeat; background-size: cover; background-position: center;">
+                <a href="#section2" class="animated1-fade" style="background-image: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url(img/Wine\ Offer.jpeg); height: 300px; width:400px; background-repeat: no-repeat; background-size: cover; background-position: center;">
                     <div class="foto_Offer_right"></div>
                     <div id="Offer_right">
                         <h4 class="Offer_right_title Poppins">Wine</h4>
@@ -146,7 +147,7 @@
                 </a>
             </div>
             <div class="Offer_right">
-                <a href="#section3" class="animated1-fade" style="background-image: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url(img/Bites\ Offer.jpg); height: 300px; background-repeat: no-repeat; background-size: cover; background-position: center;">
+                <a href="#section3" class="animated1-fade" style="background-image: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url(img/Bites\ Offer.jpg); height: 300px; width:400px; background-repeat: no-repeat; background-size: cover; background-position: center;">
                     <div class="foto_Offer_right"></div>
                     <div id="Offer_right">
                         <h4 class="Offer_right_title Poppins">Bites</h4>
@@ -360,7 +361,7 @@
         </div>
         <div class="container_bottom Poppins">
             <div class="footer_left">
-                <a href="index.html" style="text-decoration: none; color: gray;">
+                <a href="index.php" style="text-decoration: none; color: gray;">
                     © OTIUM</a>
             </div>
             <div class="footer_middle">
