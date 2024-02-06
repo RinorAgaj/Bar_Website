@@ -183,6 +183,51 @@ body{
     padding-top: 90px;
 }
 
+/* Pjesa responsive */
+@media screen and (max-width: 768px) {
+    .header {
+        height: auto; 
+        flex-direction: column; 
+        align-items: center; 
+    }
+
+    .header-left,
+    .header-middle,
+    .header-right {
+        text-align: center; 
+        width: 100%; 
+        box-sizing: border-box; 
+    }
+
+    .header-logo {
+        width: 50px; 
+    }
+
+    .header-right {
+        margin-top: 10px; 
+    }
+
+    .header-list {
+        flex-direction: column; /* Pjesa vertikale */
+    }
+
+    .header-item {
+        margin-bottom: 10px;
+    }
+}
+
+/* Pjesa responsive per lower pixels */
+@media screen and (max-width: 480px) {
+    
+    .header-right {
+        margin-top: 10px; 
+    }
+
+    .header-logo-list {
+        margin-bottom: 5px; 
+    }
+}
+
 /*==================== Sliding panel==========================*/
 .sliding-panel {
     position: fixed;
