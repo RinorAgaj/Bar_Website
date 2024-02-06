@@ -12,7 +12,7 @@
         <div class="menu">
             <div class="wrapper">
                 <ul>
-                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../home.php">Home</a></li>
                     <li><a href="manage-admin.php">Admin</a></li>
                     <li><a href="manage-category.php">Category</a></li>
                     <li><a href="manage-food.php">Food</a></li>
