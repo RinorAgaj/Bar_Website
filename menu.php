@@ -60,7 +60,7 @@
                 <div class="social-icons">
                     <a href="https://www.facebook.com"><img src="img/facebook.svg" alt="Facebook Logo"></a>
                     <a href="https://www.instagram.com"><img src="img/instagram.svg" alt="Instagram Logo"></a>
-                    <a href="https://wwww.twitter.com"><img src="img/twitter.svg" alt="Twitter Logo" style="width: 24px; height: 24px;"></a>
+                    <a href="https://www.twitter.com"><img src="img/twitter.svg" alt="Twitter Logo" style="width: 24px; height: 24px;"></a>
                 </div>
             </div>
         </div>
@@ -367,7 +367,7 @@
             <div class="footer_middle">
                 <a href="https://www.facebook.com"><img src="img/facebook.svg" alt="Facebook Logo"></a>
                 <a href="https://www.instagram.com"><img src="img/instagram.svg" alt="Instagram Logo"></a>
-                <a href="https://wwww.twitter.com"><img src="img/twitter.svg" alt="Twitter Logo" style="width: 24px; height: 24px;"></a>
+                <a href="https://www.twitter.com"><img src="img/twitter.svg" alt="Twitter Logo" style="width: 24px; height: 24px;"></a>
             </div>
             <div class="footer_right">2023 All Rights Reserved</div>
         </div>

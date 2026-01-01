@@ -1,22 +1,33 @@
 <?php
-    include('config/constant.php');
-    
-        if(isset($_GET['category_id']))
-        {
-            $category_id = $_GET['category_id'];
-            $sql = "SELECT title FROM tbl_category WHERE id=$category_id";
+include('config/constant.php');
 
-            $res = mysqli_query($conn, $sql);
+if (isset($_GET['category_id'])) {
+    $category_id = validateId($_GET['category_id']);
+    if ($category_id === false) {
+        header('location:' . SITEURL);
+        exit();
+    }
 
-            $row = mysqli_fetch_assoc($res);
-            $category_title = $row['title'];
-        }
-        else
-        {
-            header('location:'.SITEURL);
-        }
-    ?>
-<?php include('config/constant.php');?>
+    // Use prepared statement
+    $stmt = mysqli_prepare($conn, "SELECT title FROM tbl_category WHERE id = ?");
+    mysqli_stmt_bind_param($stmt, "i", $category_id);
+    mysqli_stmt_execute($stmt);
+    $res = mysqli_stmt_get_result($stmt);
+
+    if (mysqli_num_rows($res) > 0) {
+        $row = mysqli_fetch_assoc($res);
+        $category_title = $row['title'];
+    } else {
+        mysqli_stmt_close($stmt);
+        header('location:' . SITEURL);
+        exit();
+    }
+    mysqli_stmt_close($stmt);
+} else {
+    header('location:' . SITEURL);
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -80,7 +91,7 @@
                     <div class="social-icons">
                         <a href="https://www.facebook.com"><img src="img/facebook.svg" alt="Facebook Logo"></a>
                         <a href="https://www.instagram.com"><img src="img/instagram.svg" alt="Instagram Logo"></a>
-                        <a href="https://wwww.twitter.com"><img src="img/twitter.svg" alt="Twitter Logo" style="width: 24px; height: 24px;"></a>
+                        <a href="https://www.twitter.com"><img src="img/twitter.svg" alt="Twitter Logo" style="width: 24px; height: 24px;"></a>
                     </div>
                 </div>
             </div>
@@ -90,25 +101,26 @@
             <section class="food-search text-center">
                 <div class="container1">
                     
-                    <h2>Foods on <a href="#" class="text-white">"<?php echo $category_title; ?>"</a></h2>
+                    <h2>Foods on <a href="#" class="text-white">"<?php echo e($category_title); ?>"</a></h2>
 
                 </div>
-            </section>     
+            </section>
             <section class="food-menu">
                 <div class="container1">
                     <h2 class="text-center">Food Menu</h2>
 
-                    <?php 
-                    
-                        $sql2 = "SELECT * FROM tbl_food WHERE category_id=$category_id";
-
-                        $res2 = mysqli_query($conn, $sql2);
+                    <?php
+                        // Use prepared statement
+                        $stmt2 = mysqli_prepare($conn, "SELECT * FROM tbl_food WHERE category_id = ?");
+                        mysqli_stmt_bind_param($stmt2, "i", $category_id);
+                        mysqli_stmt_execute($stmt2);
+                        $res2 = mysqli_stmt_get_result($stmt2);
 
                         $count2 = mysqli_num_rows($res2);
 
-                        if($count2>0)
+                        if($count2 > 0)
                         {
-                            while($row2=mysqli_fetch_assoc($res2))
+                            while($row2 = mysqli_fetch_assoc($res2))
                             {
                                 $id = $row2['id'];
                                 $title = $row2['title'];
@@ -116,33 +128,33 @@
                                 $description = $row2['description'];
                                 $image_name = $row2['image_name'];
                                 ?>
-                                
+
                                 <div class="food-menu-box">
                                     <div class="food-menu-img">
-                                        <?php 
-                                            if($image_name=="")
+                                        <?php
+                                            if($image_name == "")
                                             {
                                                 echo "<div class='error'>Image not Available.</div>";
                                             }
                                             else
                                             {
                                                 ?>
-                                                <img src="<?php echo SITEURL; ?>img/food/<?php echo $image_name; ?>" alt="Chicke Hawain Pizza" class="img-responsive img-curve">
+                                                <img src="<?php echo SITEURL; ?>img/food/<?php echo e($image_name); ?>" alt="<?php echo e($title); ?>" class="img-responsive img-curve">
                                                 <?php
                                             }
                                         ?>
-                                        
+
                                     </div>
 
                                     <div class="food-menu-desc">
-                                        <h4><?php echo $title; ?></h4>
-                                        <p class="food-price">$<?php echo $price; ?></p>
+                                        <h4><?php echo e($title); ?></h4>
+                                        <p class="food-price">$<?php echo e($price); ?></p>
                                         <p class="food-detail">
-                                            <?php echo $description; ?>
+                                            <?php echo e($description); ?>
                                         </p>
                                         <br>
 
-                                        <a href="<?php echo SITEURL; ?>order.php?food_id=<?php echo $id; ?>" class="btn btn-primary">Order Now</a>
+                                        <a href="<?php echo SITEURL; ?>order.php?food_id=<?php echo e($id); ?>" class="btn btn-primary">Order Now</a>
                                     </div>
                                 </div>
 
@@ -153,7 +165,7 @@
                         {
                             echo "<div class='error'>Food not Available.</div>";
                         }
-                    
+                        mysqli_stmt_close($stmt2);
                     ?>
 
                     
@@ -224,7 +236,7 @@
                 <div class="footer_middle">
                     <a href="https://www.facebook.com"><img src="img/facebook.svg" alt="Facebook Logo"></a>
                     <a href="https://www.instagram.com"><img src="img/instagram.svg" alt="Instagram Logo"></a>
-                    <a href="https://wwww.twitter.com"><img src="img/twitter.svg" alt="Twitter Logo" style="width: 24px; height: 24px;"></a>
+                    <a href="https://www.twitter.com"><img src="img/twitter.svg" alt="Twitter Logo" style="width: 24px; height: 24px;"></a>
                 </div>
                 <div class="footer_right">2023 All Rights Reserved</div>
             </div>

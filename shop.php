@@ -62,7 +62,7 @@
                     <div class="social-icons">
                         <a href="https://www.facebook.com"><img src="img/facebook.svg" alt="Facebook Logo"></a>
                         <a href="https://www.instagram.com"><img src="img/instagram.svg" alt="Instagram Logo"></a>
-                        <a href="https://wwww.twitter.com"><img src="img/twitter.svg" alt="Twitter Logo" style="width: 24px; height: 24px;"></a>
+                        <a href="https://www.twitter.com"><img src="img/twitter.svg" alt="Twitter Logo" style="width: 24px; height: 24px;"></a>
                     </div>
                 </div>
             </div>
@@ -86,9 +86,9 @@
                                 $image_name = $row['image_name'];
                                 ?>
                                 
-                                <a href="<?php echo SITEURL; ?>category-foods.php?category_id=<?php echo $id; ?>">
+                                <a href="<?php echo SITEURL; ?>category-foods.php?category_id=<?php echo e($id); ?>">
                                     <div class="box-3 float-container">
-                                        <?php 
+                                        <?php
                                             if($image_name=="")
                                             {
                                                 echo "<div class='error'>Image not found.</div>";
@@ -96,13 +96,13 @@
                                             else
                                             {
                                                 ?>
-                                                <img src="<?php echo SITEURL; ?>img/category/<?php echo $image_name; ?>" alt="Pizza" class="img-responsive img-curve">
+                                                <img src="<?php echo SITEURL; ?>img/category/<?php echo e($image_name); ?>" alt="<?php echo e($title); ?>" class="img-responsive img-curve">
                                                 <?php
                                             }
                                         ?>
-                                        
 
-                                        <h3 class="float-text text-white"><?php echo $title; ?></h3>
+
+                                        <h3 class="float-text text-white"><?php echo e($title); ?></h3>
                                     </div>
                                 </a>
 
@@ -142,7 +142,7 @@
 
                             <div class="food-menu-box">
                                 <div class="food-menu-img">
-                                    <?php 
+                                    <?php
                                         if($image_name=="")
                                         {
                                             echo "<div class='error'>Image not available.</div>";
@@ -150,22 +150,22 @@
                                         else
                                         {
                                             ?>
-                                            <img src="<?php echo SITEURL; ?>img/food/<?php echo $image_name; ?>" alt="Chicke Hawain Pizza" class="img-responsive img-curve">
+                                            <img src="<?php echo SITEURL; ?>img/food/<?php echo e($image_name); ?>" alt="<?php echo e($title); ?>" class="img-responsive img-curve">
                                             <?php
                                         }
                                     ?>
-                                    
+
                                 </div>
 
                                 <div class="DMsans food-menu-desc">
-                                    <h4><?php echo $title; ?></h4>
-                                    <p class="food-price"><?php echo $price; ?>€</p>
+                                    <h4><?php echo e($title); ?></h4>
+                                    <p class="food-price"><?php echo e($price); ?>€</p>
                                     <p class="food-detail">
-                                        <?php echo $description; ?>
+                                        <?php echo e($description); ?>
                                     </p>
                                     <br>
 
-                                    <a href="<?php echo SITEURL; ?>order.php?food_id=<?php echo $id; ?>" class="btn btn-primary">Order Now</a>
+                                    <a href="<?php echo SITEURL; ?>order.php?food_id=<?php echo e($id); ?>" class="btn btn-primary">Order Now</a>
                                 </div>
                             </div>
 
@@ -243,7 +243,7 @@
                 <div class="footer_middle">
                     <a href="https://www.facebook.com"><img src="img/facebook.svg" alt="Facebook Logo"></a>
                     <a href="https://www.instagram.com"><img src="img/instagram.svg" alt="Instagram Logo"></a>
-                    <a href="https://wwww.twitter.com"><img src="img/twitter.svg" alt="Twitter Logo" style="width: 24px; height: 24px;"></a>
+                    <a href="https://www.twitter.com"><img src="img/twitter.svg" alt="Twitter Logo" style="width: 24px; height: 24px;"></a>
                 </div>
                 <div class="footer_right">2023 All Rights Reserved</div>
             </div>

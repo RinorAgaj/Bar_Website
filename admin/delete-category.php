@@ -1,44 +1,47 @@
-<?php 
-    include('../config/constant.php');
+<?php
+include('../config/constant.php');
 
-    if(isset($_GET['id']) AND isset($_GET['image_name']))
-    {
-        $id = $_GET['id'];
-        $image_name = $_GET['image_name'];
+// Require admin login
+requireAdmin();
 
-        if($image_name != "")
-        {
-            $path = "../img/category/".$image_name;
+if (isset($_GET['id']) && isset($_GET['image_name'])) {
+    $id = validateId($_GET['id']);
+    if ($id === false) {
+        $_SESSION['delete'] = "<div class='error'>Invalid category ID.</div>";
+        header('location:' . SITEURL . 'admin/manage-category.php');
+        exit();
+    }
+
+    $image_name = basename(sanitizeInput($_GET['image_name'])); // basename prevents directory traversal
+
+    if ($image_name != "") {
+        $path = "../img/category/" . $image_name;
+        if (file_exists($path)) {
             $remove = unlink($path);
 
-            if($remove==false)
-            {
+            if ($remove == false) {
                 $_SESSION['remove'] = "<div class='error'>Failed to Remove Category Image.</div>";
-                header('location:'.SITEURL.'admin/manage-category.php');
-                die();
+                header('location:' . SITEURL . 'admin/manage-category.php');
+                exit();
             }
         }
-
-        $sql = "DELETE FROM tbl_category WHERE id=$id";
-
-        $res = mysqli_query($conn, $sql);
-
-        if($res==true)
-        {
-            $_SESSION['delete'] = "<div class='success'>Category Deleted Successfully.</div>";
-            header('location:'.SITEURL.'admin/manage-category.php');
-        }
-        else
-        {
-            $_SESSION['delete'] = "<div class='error'>Failed to Delete Category.</div>";
-            header('location:'.SITEURL.'admin/manage-category.php');
-        }
-
- 
-
     }
-    else
-    {
-        header('location:'.SITEURL.'admin/manage-category.php');
+
+    // Use prepared statement for deletion
+    $stmt = mysqli_prepare($conn, "DELETE FROM tbl_category WHERE id = ?");
+    mysqli_stmt_bind_param($stmt, "i", $id);
+    $res = mysqli_stmt_execute($stmt);
+    mysqli_stmt_close($stmt);
+
+    if ($res === true) {
+        $_SESSION['delete'] = "<div class='success'>Category Deleted Successfully.</div>";
+    } else {
+        $_SESSION['delete'] = "<div class='error'>Failed to Delete Category.</div>";
     }
+    header('location:' . SITEURL . 'admin/manage-category.php');
+    exit();
+} else {
+    header('location:' . SITEURL . 'admin/manage-category.php');
+    exit();
+}
 ?>
